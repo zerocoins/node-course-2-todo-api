@@ -13,7 +13,7 @@ module.exports = {User};
 
 //
 // var user = new User({
-//   email: 'petar.Pivkovic.76@gmail.com'
+//   email: 'alex.peterson.76@gmail.com'
 // });
 //
 //
@@ -22,4 +22,4 @@ module.exports = {User};
 // }, err=> {
 //   console.log('Failed to insert new user to the db. ', err);
 // });
-// 
+//
