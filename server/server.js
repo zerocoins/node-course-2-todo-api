@@ -10,7 +10,7 @@ var app = express();
 
 app.use(bodyParser.json()); // return is function middleware
 
-// this time around we handle post requests
+// here we register post request handler
  app.post('/todos', (req, res) => {
    // just print out request body
    console.log(req.body);
@@ -28,6 +28,21 @@ app.use(bodyParser.json()); // return is function middleware
      console.log('An error occurred: ', err);
      res.status(400).send(err);
    })
+ });
+
+// define get request web application handler
+ app.get('/todos', (req, res) => { // by providing a callback this is how we get
+   // our request and response object
+   // find all Todo objects,
+   // we can get result in todos via callback or an console.error;
+   Todo.find().then((todos) => {
+     // if we got the result object, use response object to send back to caller - client app
+     res.send({todos})
+   }, (e) => {
+     // we got error while fetching data from the db, send back the status 400 and
+     // error message
+     res.status(400).send(e);
+   });
  });
 
 // now we have a werver listening on port 3000 and a live connection to mongo database - cool!
