@@ -47,7 +47,7 @@ MongoClient.connect(url, (err, client) => {
   console.log("Connected successfully to Mongo DB server");
   const db = client.db(dbName);
   // find  document from Todos collection of the 'ToDoApp' database
-  db.collection('Users').find({name:'Aleksandar Zivkovic'}).toArray().then((doc) => {
+  db.collection('Users').find({name:'Peter Jackson'}).toArray().then((doc) => {
     console.log(JSON.stringify(doc,undefined,2));
   },(err) => {
     console.log('Failed reading the Mongo DB collection -ToDoApp/Todos')

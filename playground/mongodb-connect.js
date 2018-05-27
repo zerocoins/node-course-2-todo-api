@@ -24,28 +24,28 @@ MongoClient.connect(url, (err, client) => {
   const db = client.db(dbName);
   // insert new document into Todos collection of the 'ToDoApp' database
 
-  // db.collection('Todos').insertOne({ // collection of documents named Todos - insertMany , insertOne
-  //   text: 'Something to do',
-  //   completed: false
-  // }, (err, result) => {
-  //   if (err)
-  //   {
-  //     return console.log('Unable to insert todo ',err);
-  //   }
-  //   else {
-  //     console.log(JSON.stringify(result.ops,undefined,2));
-  //     console.log('Inserted new document');
-  //   }
-  // });
+  db.collection('Todos').insertOne({ // collection of documents named Todos - insertMany , insertOne
+    text: 'Something to do',
+    completed: false
+  }, (err, result) => {
+    if (err)
+    {
+      return console.log('Unable to insert todo ',err);
+    }
+    else {
+      console.log(JSON.stringify(result.ops,undefined,2));
+      console.log('Inserted new document');
+    }
+  });
 
 // insert new doc into users collectioin
 // each doc has properties: name, location, age
 
   db.collection('Users').insertOne({
     _id: obj,
-    name: 'Aleksandar Zivkovic',
+    name: 'Peter Jackson',
     age: 42,
-    location: 'Novi Sad'
+    location: 'New York'
   },(err, res) => {
     if (err) {
       console.log('Something went wrong ',err);
