@@ -1,5 +1,5 @@
 // library imports
-var express = require ('express');
+var express = require ('express'); //
 var bodyParser = require ('body-parser');
 // local imports
 var {mongoose} = require('./db/mongoose.js');
@@ -10,8 +10,7 @@ var app = express();
 
 app.use(bodyParser.json()); // return is function middleware
 
-// this time around we use post method, i.e. our server is going to respond to
-// post requests, specifically todos
+// this time around we handle post requests
  app.post('/todos', (req, res) => {
    // just print out request body
    console.log(req.body);
@@ -19,8 +18,8 @@ app.use(bodyParser.json()); // return is function middleware
    var todo = new Todo({
      text: req.body.text
    });
-   // now save the todo to mondodb table
-   todo.save().then((doc)=>{
+   // now save the todo to mongodb table
+   todo.save().then((doc) => {
      // send the response back to the caller.
      // the response is success object returned back from the save method, probably a
      // new todo json object as inserted into database
@@ -35,3 +34,5 @@ app.use(bodyParser.json()); // return is function middleware
 app.listen(3000, () => {
   console.log('Web server start listening on port 3000.')
 });
+
+module.exports = {app};
