@@ -15,5 +15,5 @@ mongoose.connect(url,(err,client) => {
   assert.equal(err,null);
   console.log("Connected successfully to Mongo DB server");
 });
-
-module.exports = {mongoose};
+ 
+module.exports = {mongoose}; // exporting variable with the same name as module, this is shortcut in notation
